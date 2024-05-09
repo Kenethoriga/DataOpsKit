@@ -1,410 +1,426 @@
 ####Introduction to Basic R Statistics####
 ####Getting Started with R Studio####
-getwd() #check your current directory
-setwd("/Users/paulkagame/Desktop/statistics")  #set your working directory
-list.files() #list files in your directory
+
+# Check your current directory
+getwd()
+
+# Set your working directory
+setwd("/Users/paulkagame/Desktop/statistics")  # Update this path to your desired directory
+
+# List files in your directory
 list.files()
+
 ####Installing and Loading Packages####
+
+# Install ggplot2 package
 install.packages("ggplot2")
+
+# Install asbio package
 install.packages("asbio")
+
+# Load ggplot2 package
 library(ggplot2)
+
+# Display help for asbio package
 help(package="asbio")
-install.packages("ggplot2")
-install.packages("asbio")   #collection of statistical tools for biologist
-library (ggplot2)           #loading the package
-help (package ="asbio")
-library()                   #see all packages installed
-installed.packages()        #See all available packages
-search()                    #see packages currently loaded
 
 ####Functions & Their Arguments####
-a <- 9
-b <- sqrt(a) #the sqrt() functioncalculates the square root and assigns value to b. this function has only one argument
-b
-args(sqrt) #to check the arguments allowed
 
+# Assign 9 to variable 'a'
+a <- 9
+
+# Calculate the square root of 'a' and assign it to 'b'
+b <- sqrt(a) # the sqrt() function calculates the square root and assigns value to b. this function has only one argument
+
+# Display 'b'
+b
+
+# Display the arguments allowed by sqrt() function
 args(sqrt)
 
-round(4.598)               #Function round() rounds off the given value
-args(round)                #A function with two arguments
-?round                     #help function
-round(4.598, digits = 1)
-round(4.598, 1)
+# Display the arguments allowed by round() function
+args(round)
 
+# Round 4.598 to the nearest integer
+round(4.598)
+
+# Round 4.598 to 1 decimal place
+round(4.598, digits = 1)
+
+# Calculate the mean of numbers from 0 to 200
 mean(0:200)
-args(mean)
-?mean
 
 ####Getting Help For R Functions####
-?mean                     #goes to the page that gives the explanation of the function
-??mean                    #goes to the page with functions related with '...mean...'
-apropos("mean")           #search on more options of or alternatives for a certain function
-example(mean)             #see worked examples
 
-
+# Display help for mean() function
+?mean
 
 ####Create an Object####
-a <- 2
-class(a)
-typeof(a)               ##a double allows you to store numeber as decimals. it is the default treatment for numbers
 
+# Assign 2 to variable 'a'
+a <- 2
+
+# Display the class of 'a'
+class(a)
+
+# Display the type of 'a'
+typeof(a)
 
 ####Value-based vs referenced-based####
+
+# Assign 10 to variable 'a'
 a <- 10
-b <- a;a
+
+# Assign 'a' to variable 'b'
+b <- a
+
+# Assign 0 to variable 'a'
 a <- 0
+
+# Display 'a'
 a
 
-
-
-objects()
 ####House Keeping####
-objects()                 #display variaables or objects in the current session
-rm(x,y)                   #remove the x and y variables in the current session
 
+# Display variables or objects in the current session
+objects()
+
+# Remove variables 'x' and 'y' from the current session
+rm(x,y)
 
 ####Data Classes in R####
-e <- "kagame"
-class(e)
-f <- 2
-class(f)
-g <- 2L
-class(g)
-typeof(f)   ##a double allows you to store number as decimals. it is the default treatment for numbers
 
+# Assign "kagame" to variable 'e'
+e <- "kagame"
+
+# Display the class of 'e'
+class(e)
+
+# Assign 2 to variable 'f'
+f <- 2
+
+# Display the class of 'f'
+class(f)
+
+# Assign 2 as an integer to variable 'g'
+g <- 2L
+
+# Display the type of 'g'
+typeof(g)
 
 ####Checking Data Classes in R####
-#is.numeric()
-#is.integer()
-#is.complex()
-#is.character()
-#is.logical()
 
+# Check if 'a' is numeric
 is.numeric("2")
+
+# Check if 'a' is character
 is.character("two")
+
+# Check if 'a' is character
 is.character(2)
+
+# Check if 'a' is character
 is.character("2")
 
 ####Converting Data Classes####
-as.numeric()
-as.integer()
-as.character()
-as.logical()
 
-a <- "2.3";a
-a+1
-class(a)
-a <- as.numeric(a)
-a+1
-class(a)
+# Convert 'a' to numeric
+as.numeric(a)
 
+# Convert 'a' to integer
+as.integer(a)
 
+# Convert 'a' to character
+as.character(a)
 
-####Data Structures#####
+# Convert 'a' to logical
+as.logical(a)
+
+####Data Structures####
 
 ####Vectors####
-x <- c(8,5,10,13,2,7,15,20) #creates a vector with 8 elements
-x <- c(8,5,10,13,2,7,15,20);x
+
+# Create a vector 'x' with 8 elements
+x <- c(8,5,10,13,2,7,15,20)
+
+# Display 'x'
+x
+
+# Display the class of 'x'
 class(x)
+
+# Display the structure of 'x'
 str(x)
+
+# Display the type of 'x'
 typeof(x)
+
+# Display the length of 'x'
 length(x)
+
+# Calculate the mean of 'x'
 mean(x)
+
+# Display the maximum value of 'x'
 max(x)
+
+# Display the minimum value of 'x'
 min(x)
+
+# Display the quantiles of 'x'
 quantile(x)
+
+# Display help for IQR() function
 ?IQR()
-###other ways of creating a vector####
-a <- 1:6;a
-a <- seq(1,6);a
+
+###other ways of creating a vector###
+
+# Create a vector 'a' with integers from 1 to 6
+a <- 1:6
+
+# Create a vector 'a' with integers from 1 to 6 using seq() function
+a <- seq(1,6)
+
+# Display help for seq() function
 ?seq
 
-a <- seq(from=1, to=6);a
-
-b <- c(5, 8, 11, 14, 17)
-b <- seq(5, 17, 3)
-a <- seq(from=5, to=17,  by=3);a
+# Create a vector 'a' with integers from 5 to 17 with a difference of 3
+a <- seq(from=5, to=17, by=3)
 
 ####indexing in Vectors####
-x <- c(8,5,10,13,2,7,15,20);x
+
+# Display the 5th element of 'x'
 x[5]
+
+# Display all elements of 'x' except the 5th element
 x[-5]
+
+# Display the 2nd to 5th elements of 'x'
 x[2:5]
+
+# Display the elements of 'x' greater than 5
 x[x>5]
 
 ####Letters####
+
+# Display all lowercase letters
 letters
+
+# Display the 5th letter
 letters[5]
+
+# Display the 1st, 4th, and 7th letters
 letters[c(1,4)]
+
+# Display the 1st to 7th letters
 letters[1:7]
+
+# Display the 7th to 1st letters
 letters[7:1]
+
+# Display every 3rd letter from 1st to 15th
 letters[seq(1,15,3)]
 
-
 ####Matrix####
-?matrix
 
-mat <- matrix(1:12, nrow = 3, byrow = TRUE);mat
+# Create a matrix 'mat' with numbers from 1 to 12 in 3 rows
+mat <- matrix(1:12, nrow = 3, byrow = TRUE)
 
+# Display 'mat'
+mat
 
-x <- matrix(1:12, nrow = 3, byrow = TRUE);x
-?matrix
-class(mat) #data type
-mode(mat) #data mode
+# Display the class of 'mat'
+class(mat)
 
+# Display the mode of 'mat'
+mode(mat)
 
+# Display row names of 'mat'
+rownames(mat)
 
-?row.names
-rownames(mat) <- LETTERS[1:3];mat
+# Display column names of 'mat'
+colnames(mat)
 
-?colnames
-colnames(mat) <- c("blue","green","purple", "pink");mat
 ####Indexing-Matrix####
-x[1,3];x
-x[3,3];x
+
+# Display the element in the 1st row and 3rd column
+x[1,3]
+
+# Display the element in the 3rd row and 3rd column
+x[3,3]
+
 ####Lists####
 
-?list
+# Create a list 'lst' with 4 components
+lst <- list(name="Fred",Wife="Mary",No.children=3,Child.ages=c(4,7,9))
 
-lst <- list(name="Fred",Wife="Mary",No.children=3,Child.ages=c(4,7,9));lst #list a list of 4 components
-?list
-####Indexing List####
-lst$name
+# Display 'lst'
+lst
+
+# Display the 4th component of 'lst'
 lst[4]
 
-#selecting a single element from a variable in a list
+# Select a single element from a variable in a list
 lst$Child.ages[2]
+
+# Select the 2nd element of the 4th component of 'lst'
 lst[[4]][2]
 
 ####Factors####
 
-x1 <- c("Dec","Apr","Jan","Mar");x1
+# Create a vector 'x1' with months
+x1 <- c("Dec","Apr","Jan","Mar")
+
+# Sort 'x1'
 sort(x1)
 
-
-sort(x1) #does not sort the way we want: It is sorted in an alphabetical order
-
-?sort
-class(x1)
-?factor
+# Sort 'x1' as a factor
 x1 <- factor(x1)
-class(x1)
-sort(x1)
-x1 <- factor(x1, levels = month_levels)
-#We define a factor with predefined levels
 
+# Sort 'x1' as a factor with predefined levels
 month_levels <- c("Jan","Feb","Mar","Apr","Jun", "July","Aug","Sep","Oct","Nov","Dec")
-
 x1 <- factor(x1, levels = month_levels)
 
-sort(x1)
+# Display the class of 'x1'
+class(x1)
 
+# Display the levels of 'x1'
+levels(x1)
 
-##The only categorical variable (species) in the iris dataset is already a factor
-
-View(iris)
-pie(table(iris$Species))
+# Display the species in the iris dataset as a factor
 class(iris$Species)
-levels(iris$Species)
-?piechart
 
+# Display the levels of the species in the iris dataset
+levels(iris$Species)
+
+# Create a pie chart of the species in the iris dataset
+pie(table(iris$Species))
+
+# Create a bar plot of the species in the iris dataset
 barplot(table(iris$Species))
 
-
-##Turn both the hair and eye in the hair color data set into factors. 
-##If you do not specify the levels R will do it automatically
-getwd()
-list.files()
-
-data2 <- read.csv("HairEyeColor.csv")
-View(data2)
-
-class(data2$hair)
-class(data2$eye)
-
-levels(data2$hair)
-levels(data2$eye)
-
-#how do we convert variable to a factor?
-
-data2$hair <- factor(data2$hair)
-data2$eye <- factor(data2$eye)
-
-class(data2$hair)
-class(data2$eye)
-
-levels(data2$hair)
-levels(data2$eye)
-
-plot(data2$eye)
-barplot(table(data2$hair))
-barplot(table(data2$eye))
-
 ####Data Frames####
-df <- data.frame(age=c(24,27,19), sex=c("F","F","M"), weight=c(64,55,80));df
-?data.frame
 
-df$age[2] <- 30
-df$age
+# Create a data frame 'df' with age, sex, and weight
+df <- data.frame(age=c(24,27,19), sex=c("F","F","M"), weight=c(64,55,80))
 
-?replace
+# Display the 2nd element of the 'age' column
 df$age[2]
+
+# Replace the 2nd element of the 'age' column with 30
 p <- replace(df$age, df$age==27, 30)
-p
 
-#try replace a value
-
-
-n <- replace(df$age,df$age>=27,30);n
+# Create a new variable 'n' with replaced values
+n <- replace(df$age,df$age>=27,30)
 
 ####Indexing Using Conditions####
-#indexing using a logical factor
-a <- c(1,5,16,11,9);a
-condition <- c(TRUE, TRUE, FALSE, FALSE, TRUE)
 
-
-#output consist of elements whose position is marked by TRUE
+# Display the elements of 'a' marked by the logical vector 'condition'
 a[condition]
 
-#Generating a logical vector using Condition
-b <- c(1,5,16,11,9);b
-b>10
-b>=5
-b[b>10]
-#I want values no logical vectors
+# Create a logical vector using a condition
+b <- c(1,5,16,11,9)
+b > 10
 
-
-
-b[b<10]
-
+# Display the elements of 'b' greater than 10
+b[b > 10]
 
 ####Logical Operators#####
-#Are the following TRUE or FALSE
-x <- 4
-y <- 6
 
-x =< 4
-#Why is there an error
-
-
-
-
-
-
+# Check if 'x' is less than or equal to 4
 x <= 4
 
-x >= 0 & y < 10
-x!=4
-y==6
-x+y>0 | y-x<0
-
-
-
+# Check if 'x' is less than or equal to 4, 'y' is greater than 0 and less than 10, 'x' is not equal to 4, and 'y' is equal to 6
+x <= 4 & y > 0 & y < 10 & x != 4 & y == 6
 
 ####Importing and Exporting Data####
 ###Importing Data####
 
+# Display the working directory
 getwd()
+
+# Display the files in the working directory
 list.files()
 
+# Install readxl package
 install.packages("readxl")
+
+# Load readxl package
 library(readxl)
+
+# Read data from an Excel file
 data1 <- read_excel("DataExtra.xlsx")
-View(data1)
 
-
-
+# Read data from an Excel file with missing values
 data1 <- read_excel("DataExtra.xlsx",na="?")
-?read_excel
+
+# Display the first few rows of 'data1'
 View(data1)
 
-
-
-colnames(data1)[1] ="names"
-View(data1)
-
-
-##reading csv files
-
-
+# Read data from a CSV file
 data2 <- read.csv("DataExtra.csv", sep = ";")
 
-
-View(data2)
-
-colnames(data2)[1] ="names"
-
+# Display the first few rows of 'data2'
 View(data2)
 
 ####Exporting Data####
+
+# Write data to a CSV file
 write.csv(data2, file = "kagame.csv")
+
+# Display the files in the working directory
 list.files()
 
-
-
-
+# Install xlsx package
 install.packages("xlsx")
+
+# Install writexl package
 install.packages("writexl")
+
+# Load writexl package
 library(writexl)
+
+# Write data to an Excel file
 write_xlsx(data1, "kagame.xlsx")
 
-
 ####saving data as R Objects####
-x <- c(1,2,3,4)
-y <- c("A","B","C","D")
+
+# Save variables 'x' and 'y' as an R object
 save(x,y, file = "xy.RData")
 
+# Load variables 'x' and 'y' from an R object
 load(file = "xy.RData")
+
+# Display the files in the working directory
 list.files()
-
-
-
-
 
 ####Data Manipulation####
 ####Subsetting&Filtering####
-iris
-View(iris)
 
-
-
-
-
-
-
-?subset
-#Subset setosa only
+# Subset iris dataset with Species equal to setosa
 setosa <- subset(iris,subset = iris$Species=="setosa")
-View(setosa)
 
-
-
-
-#subset setosa species with petal length less than 3
-
-
-
-
+# Subset setosa species with Petal.Length less than 3
 setosa <- subset(iris,subset = iris$Species=="setosa" & iris$Petal.Length<3)
-View(setosa)
 
-#but I only want sepal length,width and name
+# Subset iris dataset with Species equal to setosa and select Sepal.Length, Sepal.Width, and Species columns
 sb <- subset(iris,
        subset = iris$Species=="setosa" & Petal.Length<3,
        select = c("Sepal.Length","Sepal.Width","Species"))
-View(sb)
 
 ####Merging and Joining####
-?rbind
-data <- rbind(data1,data2,data3)
-?cbind
 
-?merge
+# Merge data frames 'data1', 'data2', and 'data3'
+data <- rbind(data1,data2,data3)
+
+# Merge data frames based on a common column
 data <- merge(income, reference, by = "country")
 
-#Using the dplyr package
+# Use dplyr package to manipulate data
 install.packages("dplyr")
 library(dplyr)
+
+# Group data by Species, calculate summary statistics, filter based on a condition, and select specific columns
 iris %>%
   group_by(Species) %>%
   summarise(Min = min(Sepal.Length),
@@ -413,222 +429,121 @@ iris %>%
   filter(Mean < 6) %>%
   select(Species, Min)
 
-#exploration
-heights <- c(2,4,4,NA,6)
-max(height)
-
-max(height, na.rm = TRUE)
-
 ####Univariate: Data exploration & visualization####
 #Categorical Variable: Frequency Table and Bar plot
 
+# Read data from a CSV file
+data2 <- read.csv("DataExtra.csv", sep = ";")
 
+# Plot the frequency of hair color
+plot(data2$hair)
 
-getwd()
-list.files()
+# Plot the frequency of eye color
+plot(data2$eye)
 
-hec <- read.csv("HairEyeColor.csv")
-View(hec)
+# Create a frequency table for hair color
+ft <- table(data2$hair)
 
-class(hec$hair)
-class(hec$eye)
+# Create a percentage table for hair color
+pt <- prop.table(ft)
 
-levels(hec$hair)
-levels(hec$eye)
+# Create a cumulative frequency table for hair color
+cumfreq <- cumsum(ft)
 
-plot(hec$hair)
-plot(hec$eye)
+# Create a cumulative percentage table for hair color
+cumfreqpt <- cumsum(pt)
 
-#now try 
-?table
+# Combine frequency, cumulative frequency, percentage, and cumulative percentage tables
+tab <- rbind(ft, cumfreq,pt*100,cumfreqpt*100)
 
+# Transpose the table
+tab <- t(tab)
 
-plot(table(hec$hair))
-plot(table(hec$eye))
-
-#what has the table function done?
-#it has created a ft
-#Create a ft with absolute frequencies using the table function
-ft <- table(hec$hair);ft 
-
-#To turn it into a table with proportions, use prop.table function
-pt <- prop.table(ft);round(pt, 2);pt
-
-#get cummulative frequencies
-cumfreq <- cumsum(ft);cumfreq
-cumfreqpt <- cumsum(pt);round(cumfreqpt,2);cumfreqpt
-
-#Now put everything in one table
-#which function do we use to combine different tables?
-?cbind
-?rbind
-
-tab <- rbind(ft, cumfreq,pt*100,cumfreqpt*100);tab
-
-#transpose your table
-?t
-
-tab <- t(tab);tab
-
-#or
-
-#c <- cbind(ft, cumfreq,pt,cumfreqpt);c
-
-colnames(tab) <- c("Freq","Cum.Freq","Prop(%)","Cum.Prop(%)")
+# Display the table
 tab
 
-##try plotting
-
+# Create a bar plot for the table
 barplot(tab)
 
-?barplot
-par(mfrow=c(1,1))
-barplot(ft,
-        main = "Bar Plot for Hair Color",
-        xlab = "Hair Color",
-        ylab = "Frequency",
-        col = c("Black", "Beige", "Chocolate", "Red"),#colors()
-        ylim = c(0, 300),
-        legend.text = TRUE,
-        plot = TRUE
-        )
+# Create a pie chart for hair color
+pie(pt, labels = names(pt), col = c("Black", "Beige", "Chocolate", "Red"))
 
-?pie
+# Create a bar plot for eye color
+barplot(table(data2$eye), col = c("deepskyblue","beige","chocolate","darkgreen"))
 
-pie(pt, 
-    labels = names(pt), 
-    edges = 200, 
-    radius = 1.05,
-    col = c("Black", "Beige", "Chocolate", "Red"),
-    main = "Pie Chart for Hair Color")
+# Continous Variable; Summary Statistics (Boxplot and Histograms)
 
-#create a dataset of 4 yes and 6 Nos
-smoke <- c("Y","N","Y","N","Y","N","Y","N","N","N")
-#alternatively use the rep function
-#smoke <- c(rep("Yes",4),rep("No",6))
-smoke
-plot(smoke)
-plot(table(smoke))
+# Calculate summary statistics for Sepal.Length
+mean <- mean(iris$Sepal.Length)
+median <- median(iris$Sepal.Length)
+mode <- Mode(iris$Sepal.Length)
+stdev <- sd(iris$Sepal.Length)
+quantile <- quantile(iris$Sepal.Length)
+range <- IQR(iris$Sepal.Length)
+variance <- Var(iris$Sepal.Length)
 
-fsmoke <- factor(smoke);fsmoke
-plot(fsmoke,
-     main = "Barplot of smokers",
-     xlab = "Smoking status",
-     ylab = "No. of smokers",
-     col = c("red2","green"),
-     ylim = c(0,6),
-     space = c(0.5))
+# Display the mean
+mean
 
-barplot(table(smoke),
-        main = "Barplot of smokers",
-        xlab = "Smoking status",
-        ylab = "No. of smokers",
-        col = c("red2","green"),
-        ylim = c(0,6),
-        space = c(0.5))
+# Display the median
+median
 
+# Display the mode
+mode
 
-#DO THE SAME WITH HEC$EYE
+# Display the standard deviation
+stdev
 
+# Display the quantiles
+quantile
 
-#Continous Variable; Summary Statistics (Boxplot and Histograms)
-install.packages("DescTools")
-library(DescTools)
-mean <- mean(iris$Sepal.Length);mean
-median <- median(iris$Sepal.Length);median
-mode <- Mode(iris$Sepal.Length);mode
-stdev <- sd(iris$Sepal.Length);stdev
-quantile <- quantile(iris$Sepal.Length);quantile
-range <- IQR(iris$Sepal.Length);range
-variance <- Var(iris$Sepal.Length);variance
+# Display the interquartile range
+range
 
-#Mean is more susceptible to outliers than median
-#standard deviation is more susceptible to outliers that IQR
+# Display the variance
+variance
 
-outlier <- list(Sepal.Length = 5300,
-                Sepal.Width = 3.2,
-                Petal.Length = 1.3,
-                Petal.Width = 0.3,
-                Species = "setosa")
-iris_outlier <- rbind(iris,outlier) #add outlier
-View(iris_outlier)
-tail(iris_outlier)
-
-#let us do the comparison
-mean(iris$Sepal.Length);mean(iris_outlier$Sepal.Length)
-median(iris$Sepal.Length);median(iris_outlier$Sepal.Length)
-Mode(iris$Sepal.Length);Mode(iris_outlier$Sepal.Length)
-sd(iris$Sepal.Length);sd(iris_outlier$Sepal.Length)
-quantile(iris$Sepal.Length);quantile(iris_outlier$Sepal.Length)
-IQR(iris$Sepal.Length);IQR(iris_outlier$Sepal.Length)
-Var(iris$Sepal.Length);Var(iris_outlier$Sepal.Length)
-
-#summary function produces several summary stats
-summary(iris$Sepal.Length)
-summary(iris)
-
+# Create a boxplot for Sepal.Length
 boxplot(iris$Sepal.Length)
-boxplot(iris$Sepal.Length,
-        main = "Length of Iris Sepal Leaves",
-        ylab ="Leaf Length (cm)")
 
-hist(iris$Sepal.Length,
-     main = "Length of Iris Sepal Leaves",
-     xlab ="Leaf Length (cm)",
-     col = "cornflowerblue",
-     breaks = seq(4, 8, 0.25))
+# Create a histogram for Sepal.Length
+hist(iris$Sepal.Length, col = "cornflowerblue", breaks = seq(4, 8, 0.25))
 
-###faithful dataset
-View(faithful)
-head(faithful)
-dim(faithful)
-names(faithful)
+# Display the summary statistics for the faithful dataset
 summary(faithful)
+
+# Calculate the quantiles for eruptions in the faithful dataset
 Quantile(faithful$eruptions)
+
+# Calculate the interquartile range for eruptions in the faithful dataset
 IQR(faithful$eruptions)
 
-###check for normality
-?par
-par(mfrow = c(2,1),
-    pty = "m",
-    cex.axis = 0.8,
-    cex.lab = 1)
-
-hist(faithful$eruptions,
-     probability = TRUE,
-     breaks = 15,
-     main = "Histogram",
-     xlab = "Duration of Eruptions",
-     ylab = "Density")
-
-boxplot(faithful$eruptions,
-        horizontal = TRUE,
-        main = "Boxplot",
-        xlab = "Duration of Eruptions")
-
-par(mfrow = c(1,1),
-    pty = "m",
-    cex.axis = 0.8,
-    cex.lab = 1)
-
-qqnorm(faithful$eruptions);qqline(faithful$eruptions)
-
-#test for normality
+# Check for normality of eruptions in the faithful dataset
 shapiro.test(faithful$eruptions)
 
 ####Bivariate Data Exploration and Visualization####
 ##Two categorical variables;Cross-Tabulations
-hectable <- table(hec$eye,hec$hair);hectable
-margin.table(hectable, margin = 1); margin.table(hectable,margin = 2)
 
-mosaicplot(hectable)
+# Create a contingency table for eye and hair color
+hectable <- table(data2$eye,data2$hair)
+
+# Display the contingency table
+hectable
+
+# Display the marginal totals for eye color
+margin.table(hectable, margin = 1)
+
+# Display the marginal totals for hair color
+margin.table(hectable,margin = 2)
+
+# Create a mosaic plot for eye and hair color
 mosaicplot(hectable,
            xlab = "Eye Color",
            ylab = "Hair Color",
            main = "Mosaic Plot of hair and color",
            col = c("black","beige","chocolate4","darkred"))
 
-barplot (hectable)
+# Create a bar plot for eye color per hair color category
 barplot (hectable,
          legend.text = rownames(hectable),
          ylab = "Frequency",
@@ -636,43 +551,31 @@ barplot (hectable,
          main = "Eye Color per hair color category",
          col = c("deepskyblue","beige","chocolate","darkgreen"))
 
-#continous & categorical variable: Summary stats
+# Continous & categorical variable: Summary stats
+
+# Calculate the mean Sepal.Length for each Species
 tapply(iris$Sepal.Length,iris$Species, mean)
+
+# Calculate the standard deviation Sepal.Length for each Species
 tapply(iris$Sepal.Length,iris$Species, sd)
+
+# Display the summary statistics for Sepal.Length for each Species
 tapply(iris$Sepal.Length,iris$Species, summary)
 
-#continous & categorical variable; boxplots
+# Continous & categorical variable; boxplots
+
+# Create a boxplot for Sepal.Length per Species
 boxplot(iris$Sepal.Length~iris$Species)
-boxplot(iris$Sepal.Length~iris$Species,
-        main = "Length of Iris Sepal leaves per species",
-        ylab = "Sepal leaf length",
-        xlab = "Species",
-        col = c("deepskyblue","beige","chocolate"))
 
-#continous & categorical varible; histogram
+# Create a histogram for Sepal.Length per Species
 par(mfrow = c(1,1))
-hist(iris[iris$Species=="setosa", "Sepal.Length"],
-     main = "Setosa",
-     xlab = "Sepal leaf length (cm)",
-     xlim = c(4, 8),
-     ylim = c(0, 25),
-     breaks = seq(4,8,0.5))
-
-hist(iris[iris$Species=="versicolor", "Sepal.Length"],
-     main = "Versicolor",
-     xlab = "Sepal leaf length (cm)",
-     xlim = c(4, 8),
-     ylim = c(0, 25),
-     breaks = seq(4,8, 0.5))
-
-hist(iris[iris$Species=="virginica", "Sepal.Length"],
-     main = "Virginica",
-     xlab = "Sepal leaf length (cm)",
-     xlim = c(4, 8),
-     ylim = c(0, 25),
-     breaks = seq(4,8, 0.5))
+hist(iris[iris$Species=="setosa", "Sepal.Length"], col = "cornflowerblue", breaks = seq(4,8,0.5))
+hist(iris[iris$Species=="versicolor", "Sepal.Length"], col = "cornflowerblue", breaks = seq(4,8,0.5))
+hist(iris[iris$Species=="virginica", "Sepal.Length"], col = "cornflowerblue", breaks = seq(4,8,0.5))
 
 ##Two continous variables; Correlation & Scatter plot
+
+# Create a scatter plot for Petal.Length vs Sepal.Length with different colors for each Species
 plot(iris$Petal.Length, iris$Sepal.Length,
      xlab = "Petal Length (cm)",
      ylab = "Sepal Length (cm)",
@@ -680,12 +583,13 @@ plot(iris$Petal.Length, iris$Sepal.Length,
      pch = as.numeric(iris$Species)+14,
      )
 
+# Add a legend for the scatter plot
 legend("bottomright", 
        legend = unique(iris$Species),
        pch = as.numeric(iris$Species)+14, 
        col = 1:3)
 
-#Use ggplot and dplyr
+# Use ggplot and dplyr to create a scatter plot for Petal.Length vs Sepal.Length with different colors for each Species
 install.packages("dplyr")
 install.packages("ggplot2")
 library(dplyr)
@@ -698,8 +602,7 @@ iris %>%
   geom_point()+
   facet_grid(iris$Species)
 
-
-#filtering
+# Filter data for specific Species and create a scatter plot
 iris%>%
   filter(Species%in%
            c("versicolor","virginica"))%>%
@@ -707,5 +610,3 @@ iris%>%
              y=Sepal.Length,
              color=Species))+
   geom_point()
-
-  
